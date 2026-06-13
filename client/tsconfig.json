@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "es2022",
+    "target": "es2023",
+    "lib": ["es2023", "esnext.disposable"],
+    "types": ["@citizenfx/client"],
+    "composite": true,
+    "paths": {
+      "types": ["../types"],
+      "*": ["./*"]
+    }
+  },
+  "include": ["./", "../types"]
+}
