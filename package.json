@@ -1,6 +1,6 @@
 {
   "name": "fivem-ts",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "license": "ISC",
   "description": "FiveM TypeScript boilerplate",
@@ -20,32 +20,26 @@
   },
   "type": "module",
   "scripts": {
-    "init": "bun run scripts/init.ts",
-    "lint": "oxlint",
-    "format": "oxfmt",
-    "tsd": "bun tsdown --",
-    "dev": "bun-tasks tsd --watch ::: webbuild --watch",
-    "webdev": "bun --cwd web vite dev --outDir ../dist/web --emptyOutDir",
-    "webbuild": "bun --cwd web vite build --outDir ../dist/web --emptyOutDir",
-    "build": "bun-tasks tsd ::: bun webbuild"
+    "init": "bun run init.js",
+    "build": "bun run build.js",
+    "watch": "bun run build.js --watch",
+    "format": "bun run biome format --write",
+    "lint": "bun run biome lint --write"
   },
   "dependencies": {
     "@overextended/core": "^0.3.1",
-    "@overextended/ox_lib": "^3.35.0"
+    "@overextended/ox_lib": "^3.35.0",
+    "@biomejs/biome": "^1.9.4",
+    "@nativewrappers/fivem": "latest"
   },
   "devDependencies": {
     "@citizenfx/client": "latest",
     "@citizenfx/server": "latest",
+    "@jgoz/esbuild-plugin-typecheck": "^4.0.3",
+    "@overextended/fx-utils": "^0.0.4",
     "@types/bun": "latest",
     "@types/node": "^22",
-    "bun-tasks": "^0.1.2",
-    "fast-glob": "^3.3.3",
-    "oxfmt": "^0.51.0",
-    "oxlint": "^1.66.0",
-    "tsdown": "^0.22.0",
+    "esbuild": "^0.25.0",
     "typescript": "^5.8.3"
-  },
-  "engines": {
-    "node": ">=22.22.0"
   }
 }
