@@ -6,6 +6,8 @@ const name = process.argv[3] || cwd.slice(cwd.lastIndexOf("/") + 1);
 const pkg = file("./package.json");
 
 await pkg.json().then((obj) => {
+  const author = obj.author?.name ?? obj.author ?? "ren";
+  
   obj.name = name;
   obj.license = "ISC";
   obj.scripts = {
@@ -14,6 +16,7 @@ await pkg.json().then((obj) => {
     "format": "bun run biome format --write",
     "lint": "bun run biome lint --write"
   }
+  obj.author = author;
 
   delete obj.bugs;
   delete obj.repository;
